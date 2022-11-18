@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Add User
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,31 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Add User</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="form">
+    <h2 id="registration">Enter Details</h2>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  
+        <div ngModelGroup="personDetails" #personalDetail="ngModelGroup">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Your name.."
+          name="firstname" ngModel required #fname="ngModel">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Your last name.."
+          name="lastname" ngModel required>
+         
+  
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your last email.."
+          name="email" ngModel required email>
+  
+        </div>
+        <input type="submit" value="Submit" id="btn"><!--[disabled]="!myForm.valid"-->
+      </form>
+  </div>
+  
 </ion-content>
